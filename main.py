@@ -1,5 +1,4 @@
-import argparse
-import os
+
 from config import DATA_DIR, MODEL_DIR, CATEGORIES
 from preprocessor import TextPreprocessor
 from feature_extractor import FeatureExtractor
@@ -112,40 +111,6 @@ def classify_document(document_path, model_load_dir):
     print(f"Top 3 Predicted Categories: {', '.join(prediction[0])}")
     print("-------------------------------------------------------------------")
 
-# def main():
-#     # This is the main function that handles different commands like train, evaluate, and classify.
-#     parser = argparse.ArgumentParser(description='Document Classification System')
-#     subparsers = parser.add_subparsers(dest='command', help='Available commands')
-    
-#     train_parser = subparsers.add_parser('train', help='Train the model')
-#     train_parser.add_argument('--train_data_dir', type=str, default=DATA_DIR,
-#                             help='Path to training data directory')
-#     train_parser.add_argument('--model_save_dir', type=str, default=MODEL_DIR,
-#                             help='Path to save trained model')
-    
-#     eval_parser = subparsers.add_parser('evaluate', help='Evaluate the model')
-#     eval_parser.add_argument('--test_data_dir', type=str, default=DATA_DIR,
-#                            help='Path to test data directory')
-#     eval_parser.add_argument('--model_load_dir', type=str, default=MODEL_DIR,
-#                            help='Path to load trained model')
-    
-#     classify_parser = subparsers.add_parser('classify', help='Classify a document')
-#     classify_parser.add_argument('--document_path', type=str, default='document.txt',
-#                                help='Path to document to classify')
-#     classify_parser.add_argument('--model_load_dir', type=str, default=MODEL_DIR,
-#                                help='Path to load trained model')
-    
-#     args = parser.parse_args()
-    
-#     if args.command == 'train':
-#         train_model(args.train_data_dir, args.model_save_dir)
-#     elif args.command == 'evaluate':
-#         evaluate_test_data(args.test_data_dir, args.model_load_dir)
-#     elif args.command == 'classify':
-#         classify_document(args.document_path, args.model_load_dir)
-#     else:
-#         parser.print_help()
-
 def main():
     while True:
         print("\n============================= Document Classification System ===============================")
@@ -177,7 +142,6 @@ def main():
 
         else:
             print("Invalid choice. Please enter a number between 1 and 4.")
-
 
 
 if __name__ == '__main__':
