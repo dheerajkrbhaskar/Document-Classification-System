@@ -1,5 +1,6 @@
-
-from config import DATA_DIR,TEST_DATA_DIR, MODEL_DIR, CATEGORIES
+import argparse
+import os
+from config import DATA_DIR, MODEL_DIR, CATEGORIES
 from preprocessor import TextPreprocessor
 from feature_extractor import FeatureExtractor
 from naive_bayes import NaiveBayes as NaiveBayesClassifier
