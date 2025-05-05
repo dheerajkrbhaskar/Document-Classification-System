@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 2. Run the classifier:
 ```bash
-python main.py --train_data_path /path/to/training/data --test_data_path /path/to/test/data
+python main.py
 ```
 
 ## Project Structure
