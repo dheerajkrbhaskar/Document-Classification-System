@@ -1,4 +1,5 @@
-
+import argparse
+import os
 from config import DATA_DIR, MODEL_DIR, CATEGORIES
 from preprocessor import TextPreprocessor
 from feature_extractor import FeatureExtractor
@@ -130,7 +131,7 @@ def main():
 
         elif choice == "2":
             #Evaluating...
-            evaluate_test_data(DATA_DIR, MODEL_DIR)
+            evaluate_test_data(TEST_DATA_DIR, MODEL_DIR)
 
         elif choice == "3":
             #Classifying...

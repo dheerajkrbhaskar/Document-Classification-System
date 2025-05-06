@@ -3,7 +3,8 @@ from pathlib import Path
 
 # project paths
 BASE_DIR = Path(__file__).parent.absolute()  # base directory of  project
-DATA_DIR = os.path.join(BASE_DIR, "data")  #directory for  storing data
+DATA_DIR = os.path.join(BASE_DIR, "train_data")  #directory for  storing data
+TEST_DATA_DIR = os.path.join(BASE_DIR, "test_data")  #directory for  storing data
 MODEL_DIR = os.path.join(BASE_DIR, "models")  # directory for saving model
 
 
