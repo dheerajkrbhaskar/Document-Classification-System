@@ -79,24 +79,32 @@ class NaiveBayes:
 
         return probabilities
 
-    def predict(self, X):
+    def predict(self, X, top_n=1):
         """
         Predict class labels for input data
         
         Args:
             X (list): List of feature vectors
+            top_n (int): Number of top predictions to return
             
         Returns:
             list: Predicted class labels
         """
+        # Debugging: Print shape of input X
+        print(f"Predicting with input shape: {X.shape}")
+
         # Get probabilities for each class
         probabilities = self.predict_proba(X)
 
-        # Get top N predictions for each sample
-        top_n = 3
-        top_n_indices = np.argsort(probabilities, axis=1)[:, -top_n:][:, ::-1]  # Indices of top N probabilities
-        top_n_labels = [[self.classes[idx] for idx in indices] for indices in top_n_indices]
-        top_n_probs = [probabilities[i, indices] for i, indices in enumerate(top_n_indices)]
+        # Debugging: Print shape of probabilities
+        print(f"Probabilities shape: {probabilities.shape}")
 
-        # Return the top predictions
-        return top_n_labels, top_n_probs
+        # Get top N predictions for each sample
+        top_n_indices = np.argsort(probabilities, axis=1)[:, -top_n:][:, ::-1]
+        top_n_labels = [[self.classes[idx] for idx in indices] for indices in top_n_indices]
+
+        # Debugging: Ensure predictions are generated for all samples
+        if len(top_n_labels) != X.shape[0]:
+            raise ValueError(f"Number of predictions ({len(top_n_labels)}) does not match number of samples ({X.shape[0]}).")
+
+        return top_n_labels if top_n > 1 else [labels[0] for labels in top_n_labels]  # Return top N or top 1
