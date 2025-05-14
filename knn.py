@@ -28,7 +28,7 @@ class KNNClassifier:
         self.X_train = np.array(X_train)
         self.y_train = np.array(y_train)
 
-    def predict(self, X_test, top_n=1):
+    def predict(self, X_test, top_n=3):
         """
         Predict class labels for input data
         

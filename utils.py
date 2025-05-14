@@ -100,7 +100,9 @@ def evaluate_model(y_true, y_pred, class_names):
     print(f"Unique labels: {unique_labels}")
 
     # Generate classification report with explicit labels
-    report = classification_report(y_true, y_pred, target_names=class_names, labels=class_names, zero_division=0)
+    report = classification_report(y_true, y_pred, target_names=class_names, zero_division=0)
+    print("\nClassification Report:")
+    print(report)
     accuracy = accuracy_score(y_true, y_pred)
 
     # Calculate per-category accuracy
